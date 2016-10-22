@@ -61,8 +61,8 @@ python 2.7
 
 ### install
 
-```> python setup.py install
-```
+```python setup.py install```
+
 
 ### LICENCE
 The MIT License (MIT)
