@@ -56,7 +56,7 @@ python 2.7
 
 ### API文档和使用实例
 
-去往    [wiki===========>](http://链接网址)
+去往    [wiki===========>](https://github.com/hujiang001/jsonDB/wiki/reference-document)
 
 
 ### install
