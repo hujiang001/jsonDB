@@ -318,9 +318,9 @@ class JSONDB:
         '''
         keywords = ['$lt','$lte','$gt','$gte','$ne','$or']
         for w in keywords:
-            if not str(filter).find(w):
-                return False
-        return True
+            if str(filter).find(w) != -1:
+                return True
+        return False
 
     def __findInColl(self, coll, filter=None, limit=0, deepcpy=1):
         retList = []
@@ -485,7 +485,7 @@ class JSONDB:
         比如,期间多次调用insert操作,那么insert的耗时是所有这些的累计值.
         :return:
         '''
-        self.__g_perfDot['sw'] = True
+        self.__g_perfDot['sw']=True
 
     def perfDotEnd(self):
         '''
@@ -497,7 +497,14 @@ class JSONDB:
                 continue
             print '['+key+']''spend time: '+str(self.__g_perfDot[key])
         print ''
-        self.__g_perfDot['sw'] = False
+
+        self.__g_perfDot['sw']=False
+        #init
+        keys = self.__g_perfDot.keys()
+        for k in keys:
+            if k!='sw':
+                self.__g_perfDot.pop(k)
+
     '''
     indent = 1, 格式化输出
     '''
